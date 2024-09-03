@@ -490,9 +490,6 @@ impl<'b, T: Clone + Send + Sync> PointIndexation<'b, T> {
             let mut lock_nb_point = self.nb_point.write();
             *lock_nb_point += 1;
             nb_point = *lock_nb_point;
-            if nb_point % 50000 == 0 {
-                println!(" setting number of points {:?} ", nb_point);
-            }
         }
         trace!(" setting number of points {:?} ", *self.nb_point);
         // Now possibly this is a point on a new layer that will have no neighbours in its layer
